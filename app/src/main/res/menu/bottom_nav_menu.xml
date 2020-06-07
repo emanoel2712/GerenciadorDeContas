@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_despesa"
+        android:title="@string/title_despesa"
+        android:icon="@drawable/ic_despesa"
+        />
+
+    <item
+        android:id="@+id/navigation_receita"
+        android:title="@string/title_receita"
+        android:icon="@drawable/ic_receita"/>
+
+</menu>

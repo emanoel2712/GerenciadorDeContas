@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtValor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="Valor: " />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvValor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/txtValor"
+        android:text="R$00,00" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_below="@id/txtValor"
+
+        android:text="Descrição: " />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvValor"
+
+        android:layout_toRightOf="@+id/txtDesc"
+        android:text="Despesa de vendas" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_toRightOf="@id/tvPago"
+        android:text="Data: " />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/txtData"
+
+        android:text="Data" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtPago"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tvValor"
+        android:layout_marginStart="5dp"
+        android:text="Pago: " />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvPago"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/txtPago"
+        android:text="Sim" />
+</RelativeLayout>

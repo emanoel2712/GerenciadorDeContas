@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "67293875763",
+    "firebase_url": "https://gerenciadordecontas-9594a.firebaseio.com",
+    "project_id": "gerenciadordecontas-9594a",
+    "storage_bucket": "gerenciadordecontas-9594a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:67293875763:android:76da760d41d9ea84f91d46",
+        "android_client_info": {
+          "package_name": "br.com.mobills.gerenciadordecontas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "67293875763-6tqti6cjq93khk2rmua6rsbv25dks7t5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.mobills.gerenciadordecontas",
+            "certificate_hash": "d26fefc251c899d43dc899739a446099c9fb678b"
+          }
+        },
+        {
+          "client_id": "67293875763-7rnnt0oco0e69bhouc50406ku0otiptu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOkHkrYkBbSls8LtNpbCduE26Wx8Wv1bE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "67293875763-7rnnt0oco0e69bhouc50406ku0otiptu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

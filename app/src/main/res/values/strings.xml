@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Gerenciador De Contas</string>
+
+
+    <string name="facebook_application_id" translatable="false">1482643578610998</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">fb1482643578610998</string>
+    <string name="title_receita">Receitas</string>
+    <string name="title_despesa">Despesas</string>
+    <string name="title_addDespesa">Add Despesa</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
