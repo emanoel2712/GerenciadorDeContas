@@ -6,7 +6,9 @@ import android.widget.EditText;
 
 public abstract class MaskEditUtil {
 
+
     public static final String FORMAT_DATE_HOUR = "##/##/#### ##:##";
+
 
 
     public static TextWatcher mask(final EditText ediTxt, final String mask) {

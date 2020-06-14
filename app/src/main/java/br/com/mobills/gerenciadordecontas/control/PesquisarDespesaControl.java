@@ -1,15 +1,9 @@
 package br.com.mobills.gerenciadordecontas.control;
 
-import android.app.AlertDialog;
-import android.app.DownloadManager;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Bundle;
+import android.provider.DocumentsContract;
 import android.view.View;
-import android.widget.Adapter;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -33,10 +27,10 @@ import br.com.mobills.gerenciadordecontas.model.Despesa;
 import br.com.mobills.gerenciadordecontas.view.CadastrarDespesaActivity;
 import br.com.mobills.gerenciadordecontas.view.PesquisarDespesaFragment;
 
-import static java.security.AccessController.getContext;
-
 public class PesquisarDespesaControl {
+    private View root;
     private Fragment fragment;
+
     public static List<Despesa> listDespesa = new ArrayList<>();
 
     private RecyclerView recyclerViewDespesa;
@@ -46,13 +40,8 @@ public class PesquisarDespesaControl {
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
 
-    Despesa despesa;
-
-
-    public PesquisarDespesaControl() {
-    }
-
-    public PesquisarDespesaControl(Fragment fragment) {
+    public PesquisarDespesaControl(View root, Fragment fragment) {
+        this.root = root;
         this.fragment = fragment;
 
         initComponents();
@@ -60,11 +49,11 @@ public class PesquisarDespesaControl {
 
 
     private void initComponents() {
-        btAddDespesa = PesquisarDespesaFragment.root.findViewById(R.id.btAddDespesa);
+        btAddDespesa = root.findViewById(R.id.btAddDespesa);
 
         inicializarFirebase();
 
-        recyclerViewDespesa = PesquisarDespesaFragment.root.findViewById(R.id.recyclerViewDespesas);
+        recyclerViewDespesa = root.findViewById(R.id.recyclerViewDespesas);
 
         recuperarDespesasBanco();
 
@@ -78,7 +67,7 @@ public class PesquisarDespesaControl {
         btAddDespesa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it = new Intent(fragment.getActivity(), CadastrarDespesaActivity.class);
+                Intent it = new Intent(root.getContext(), CadastrarDespesaActivity.class);
                 fragment.getActivity().startActivity(it);
 
 
@@ -88,7 +77,7 @@ public class PesquisarDespesaControl {
     }
 
     private void inicializarFirebase() {
-        FirebaseApp.initializeApp(fragment.getContext());
+        FirebaseApp.initializeApp(root.getContext());
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
 
@@ -97,8 +86,8 @@ public class PesquisarDespesaControl {
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
         try {
             recyclerView.setHasFixedSize(true);
-            recyclerView.setLayoutManager(new LinearLayoutManager(fragment.getContext()));
-            recyclerView.setAdapter(new DespesaAdapter(fragment.getContext(), listDespesa));
+            recyclerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
+            recyclerView.setAdapter(new DespesaAdapter(root.getContext(), listDespesa));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -112,8 +101,7 @@ public class PesquisarDespesaControl {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Despesa despesa = snapshot.getValue(Despesa.class);
 
-//
-                        listDespesa.add(despesa);
+                            listDespesa.add(despesa);
 
 
 
@@ -129,6 +117,55 @@ public class PesquisarDespesaControl {
 
     }
 
+    public void limparLista(){
+    listDespesa.clear();
+
+    }
+
+    //    private void clickItemLista() {
+//        despesa = new Despesa();
+//
+//
+//        recyclerView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String tecnicoId = "";
+//              final int pos = recyclerView.getRootView();
+//
+//                if (pos != RecyclerView.NO_POSITION) {
+//
+////                  tecnicoId = listDespesa.get(pos).getId();
+//                    //System.out.println(tecnicoId);
+//
+////                    Intent intent = new Intent(v.getContext(), TelaExibeTecnico.class);
+////                    Bundle b = new Bundle();
+////                    b.putString("tecnicoId", tecnicoId.toString());
+////                    intent.putExtras(b);
+////                    v.getContext().startActivity(intent);
+//
+//                    AlertDialog.Builder alerta = new AlertDialog.Builder(fragment.getContext());
+//                    alerta.setTitle("Visualizando Despesa");
+//                    alerta.setMessage(listDespesa.get(pos).toString());
+//                    alerta.setNeutralButton("Fechar", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            despesa = null;
+//                        }
+//                    });
+//                    alerta.setPositiveButton("Editar", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                        }
+//                    });
+//                    alerta.show();
+//                }
+//            }
+//        });
+//
+//    }
+
+//        Query query;
+//        query = databaseReference.child("Despesa").orderByChild("valor");
 
 
     public void onResume() {

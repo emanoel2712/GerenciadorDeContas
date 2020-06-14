@@ -16,7 +16,7 @@ import br.com.mobills.gerenciadordecontas.control.PesquisarDespesaControl;
 public class PesquisarDespesaFragment extends Fragment {
 
     private PesquisarDespesaControl control;
-    public static View root;
+    public View root;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class PesquisarDespesaFragment extends Fragment {
        root = inflater.inflate(R.layout.fragment_pesquisar_despesa, container, false);
 
 
-        control = new PesquisarDespesaControl(this);
+        control = new PesquisarDespesaControl(root, this);
 
         return root;
     }
